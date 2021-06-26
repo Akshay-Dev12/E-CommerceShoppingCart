@@ -1,0 +1,51 @@
+<section>
+  <div class="container">
+    <table class="table mt-5">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Discription</th>
+          <th scope="col">Price</th>
+          <th scope="col">Image</th>
+          <th scope="col">Quadity</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        {{#each products}}
+        <tr>
+          {{#each this.products}}
+          <th scope="row">1</th>
+          <td>{{this.Name}}</td>
+          <td>{{this.Dis}}</td>
+          <td>{{this.Price}}</td>
+
+          <td>
+            <img style="width: 50px;height:50px;" src="./pdtImages/{{this._id}}.jpeg" alt="">
+          </td>
+          {{/each}}
+          <td>
+            <a href="/increment/{{this.item}}"> <button class="cart-item-count mr-3">+
+              </button>
+            </a>
+            {{this.quandity}}<a href="/decrement/{{this.item}}"><button class="cart-item-count ml-3">-</button></a>
+          </td>
+          <td>
+            <a href="/remove/{{this.item}}">
+              <button type="button" onclick="return confirm('Are you sure to delete')"
+                class="btn btn-danger">Remove</button>
+            </a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <hr>
+    <h3 style="text-align: right;font-family: Times New Roman, Times, serif;" class="mr-3">
+      Total Price:{{total}}</h3>
+    <a href="/order">
+      <button type="button" class="btn btn-info float-right mr-3">Place Order</button>
+    </a>
+  </div>
+</section>
